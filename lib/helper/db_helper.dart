@@ -4,10 +4,12 @@ import 'package:path/path.dart' as path;
 class DBHelper {
   static Future<sql.Database> database(String table) async {
     final databasePath = await sql.getDatabasesPath();
+    print("Database path: $databasePath");
     return sql.openDatabase(path.join(databasePath, 'places.db'), version: 1,
         onCreate: (database, version) {
       database.execute(
-          "CREATE TABLE $table(id TEXT PRIMARY KEY, title TEXT NOT NULL, image TEXT NOT NULL)");
+        "CREATE TABLE $table(id TEXT PRIMARY KEY, title TEXT NOT NULL, image TEXT NOT NULL)",
+      );
     });
   }
 

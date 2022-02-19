@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:places_list/providers/great_places.dart';
 import 'package:places_list/widgets/image_input.dart';
-import 'package:provider/provider.dart';
+import 'package:places_list/widgets/location_input.dart';
 
 class AddPlace extends StatefulWidget {
   const AddPlace({Key? key}) : super(key: key);
@@ -53,6 +55,8 @@ class _AddPlaceState extends State<AddPlace> {
                     ),
                     const SizedBox(height: 10.0),
                     ImageInput(onSelectImage: selectImage),
+                    const SizedBox(height: 10.0),
+                    const LocationInput(),
                   ],
                 ),
               ),
